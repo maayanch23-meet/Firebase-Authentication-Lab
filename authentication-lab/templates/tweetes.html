@@ -7,7 +7,8 @@
 </head>
 <body>
 	{% for tweet in tweet_val %}
-	<h4>{{tweet}}</h4>
+	<h4>title : {{tweet_val[tweet]['title']}}</h4>
+	<h4>text : {{tweet_val[tweet]['text']}}</h4>
 	{% endfor %}
 </body>
 </html>
