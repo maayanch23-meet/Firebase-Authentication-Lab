@@ -63,7 +63,7 @@ def add_tweet():
 @app.route('/all_tweets',)
 def tweets():
 	tweet_val = db.child("tweets").child(login_session['user']['localId']).get().val()
-	return render_template('tweets' tweet_val = tweet_val)
+	return render_template('tweets', tweet_val = tweet_val)
 
 if __name__ == '__main__':
 	app.run(debug=True)
