@@ -51,9 +51,7 @@ def signup():
 @app.route('/add_tweet', methods=['GET', 'POST'])
 def add_tweet():
 	if request.method == 'POST':
-		user = {'title' : request.form['title'], 'text' : request.form['text']}
 		try:
-			db.child("Users").child(login_session['user']['localId']).set(user)
 			tweet = {"title" : request.form['title'], "text" : request.form['text'], "uid" : login_session['user']['localId']}
 			db.child("tweets").push(tweet)
 			return redirect(url_for('add_tweet'))
@@ -63,7 +61,7 @@ def add_tweet():
 @app.route('/all_tweets',)
 def tweets():
 	tweet_val = db.child("tweets").child(login_session['user']['localId']).get().val()
-	return render_template('tweets', tweet_val = tweet_val)
+	return render_template('tweetes.html', tweet_val = tweet_val)
 
 if __name__ == '__main__':
 	app.run(debug=True)
